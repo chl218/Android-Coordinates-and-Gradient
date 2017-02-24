@@ -29,14 +29,13 @@ public class ConnectActivity extends AppCompatActivity {
 
 
                 String addr = editTextAddr.getText().toString();
-                //int    port = Integer.parseInt(editTextPort.getText().toString());
-                int port = 5001;
+                int    port = Integer.parseInt(editTextPort.getText().toString());
                 Client client = new Client(addr, port, 0, 0, 0, 0);
                 client.execute();
 
                 Intent intent = new Intent(ConnectActivity.this, DrawActivity.class);
                 intent.putExtra("addr", addr);
-                intent.putExtra("port", port);
+                intent.putExtra("port", String.valueOf(port));
                 startActivity(intent);
             }
         });
